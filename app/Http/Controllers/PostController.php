@@ -6,12 +6,17 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = auth()->user()->posts;
- 
-        return response()->json([
-            'success' => true,
-            'data' => $posts
-        ]);
+        $accessToken = auth()->user()->token();
+    $posts = auth()->user()->posts;
+
+    return response()->json([
+        'success' => true,
+        'data' => $posts
+    ], 200, [
+        'Accept' => 'application/json',
+        'Authorization' => 'Bearer '. $accessToken->accessToken,
+    ]);
+        
     }
  
     public function show($id)
@@ -37,6 +42,7 @@ class PostController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
+        
  
         $post = new Post();
         $post->title = $request->title;

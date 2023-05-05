@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,6 +16,9 @@ use App\Http\Controllers\PostController;
 */
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
+Route::post('save-file', [FileController::class, 'store'])->middleware('auth:api');
+
 Route::middleware('auth:api')->group(function () {
     Route::resource('posts', PostController::class);
-});
+}
+);

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class PassportAuthController extends Controller
 {
     /**
@@ -25,6 +26,8 @@ class PassportAuthController extends Controller
  
         return response()->json(['token' => $token], 200);
     }
+    
+   
  
     /**
      * Login
@@ -43,4 +46,6 @@ class PassportAuthController extends Controller
             return response()->json(['error' => 'Unauthorised'], 401);
         }
     }   
+
+ 
 }
