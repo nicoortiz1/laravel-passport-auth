@@ -19,6 +19,7 @@ class FileController extends Controller
     $content = file_get_contents($file->getRealPath());
     
     $contentLines = explode("\n", $content);
+    $validLines = [];
     
     foreach ($contentLines as $line) {
         $line = trim($line);
@@ -85,28 +86,42 @@ class FileController extends Controller
                 ]);
             }
             
-            
-
-        };
-        
-
+            $validLines[] = [
+                'var1' => $var1,
+                'var2' => $var2,
+                'var3' => $var3,
+                'var4' => $var4,
+                'var5' => $var5,
+                'var6' => $var6,
+                'var7' => $var7,
+                'var8' => $var8,
+                'var9' => $var9,
+                'var10' => $var10,
+                'var11' => $var11,
+                'var12' => $var12,
+                'var13' => $var13,
+            ];
+        }
+    }        
+     
+    foreach ($validLines as $lineData) {
         $novedades_sueldos = new novedades_sueldos;
-      $novedades_sueldos->centro = $var1;
-      $novedades_sueldos->padron = $var2;
-      $novedades_sueldos->codigo1 = $var3;
-      $novedades_sueldos->importe1 = $var4;
-      $novedades_sueldos->codigo2 = $var5;
-      $novedades_sueldos->importe2 = $var6;
-      $novedades_sueldos->codigo3 = $var7;
-      $novedades_sueldos->importe3 = $var8;
-      $novedades_sueldos->codigo4 = $var9;
-      $novedades_sueldos->importe4 = $var10;
-      $novedades_sueldos->codigo5 = $var11;
-      $novedades_sueldos->importe5 = $var12;
-      $novedades_sueldos->tipo_novedad = $var13;
-      $novedades_sueldos->save();
-   
+        $novedades_sueldos->centro = $lineData['var1'];
+        $novedades_sueldos->padron = $lineData['var2'];
+        $novedades_sueldos->codigo1 = $lineData['var3'];
+        $novedades_sueldos->importe1 = $lineData['var4'];
+        $novedades_sueldos->codigo2 = $lineData['var5'];
+        $novedades_sueldos->importe2 = $lineData['var6'];
+        $novedades_sueldos->codigo3 = $lineData['var7'];
+        $novedades_sueldos->importe3 = $lineData['var8'];
+        $novedades_sueldos->codigo4 = $lineData['var9'];
+        $novedades_sueldos->importe4 = $lineData['var10'];
+        $novedades_sueldos->codigo5 = $lineData['var11'];
+        $novedades_sueldos->importe5 = $lineData['var12'];
+        $novedades_sueldos->tipo_novedad = $lineData['var13'];
+        $novedades_sueldos->save();
     }
+    
     
     $imageName = time().'.'.$file->extension();
     $imagePath = public_path('archivos'). '/files';
@@ -116,7 +131,7 @@ class FileController extends Controller
     return response()->json([
         "success" => true,
         "message" => "Archivo subido correctamente.",
-        "registros" => $novedades_sueldos
+        //"registros" => $novedades_sueldos
     ]);
  
     }
