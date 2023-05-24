@@ -14,7 +14,6 @@ class FileController extends Controller
 {
     public function store(Request $request)
     {
-   
     $file = $request->file('file');
     $content = file_get_contents($file->getRealPath());
     
@@ -67,7 +66,7 @@ class FileController extends Controller
                     "message" => "El valor de $var6 debe ser numérico"
                 ]);
             }
-           if (!is_numeric($var8)) {
+            if (!is_numeric($var8)) {
                 return response()->json([
                     "success" => false,
                     "message" => "El valor de $var8 debe ser numérico"
