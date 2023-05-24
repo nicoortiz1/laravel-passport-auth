@@ -17,6 +17,8 @@ use App\Http\Controllers\FileController;
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
 Route::post('save-file', [FileController::class, 'store'])->middleware('auth:api');
+Route::get('/oracle-data', 'App\Http\Controllers\OracleController@getDataFromOracle');
+
 
 Route::middleware('auth:api')->group(function () {
     Route::resource('posts', PostController::class);
