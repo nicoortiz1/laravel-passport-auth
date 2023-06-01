@@ -9,7 +9,7 @@ class novedades_sueldos extends Model
 {
     use HasFactory;
 
-    protected $table = 'nov_suel';
+    protected $table = 'novedades_sueldo';
     public $timestamps = false;
 
     protected $fillable = ['centro', 'padron', 'codigo1', 'importe1','codigo2','importe2','codigo3','importe3','codigo4','importe4','codigo5','importe5', 'tipo_novedad'];
