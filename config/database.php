@@ -95,15 +95,16 @@ return [
         
         'oracle' => [
             'driver'        => 'oracle',
-            'host'          => env('DB_HOST', '10.2.149.41'),
-            'port'          => env('DB_PORT', '1521'),
-            'database'      => env('DB_DATABASE', 'TESTSIARHCIDI'),
-            'service_name'  => env('DB_SERVICE_NAME', 'SIARH'),
-            'username'      => env('DB_USERNAME', 'SIARH'),
-            'password'      => env('DB_PASSWORD', 's14rh2019'),
-            'charset'       => env('DB_CHARSET', 'utf8'),
-            'prefix'        => env('DB_PREFIX', ''),
-            'prefix_schema' => env('DB_SCHEMA_PREFIX', ''),
+            'host' => env('ORA_DB_HOST', '10.2.149.41'),
+            'port' => env('ORA_DB_PORT', '1521'),
+            'database' => env('ORA_DB_DATABASE', 'TESTSIARHCIDI'),
+            'service_name' => env('ORA_DB_SERVICE_NAME', 'SIARH'),
+            'username' => env('ORA_DB_USERNAME', 'SIARH'),
+            'password' => env('ORA_DB_PASSWORD', 's14rh2019'),
+            'charset' => env('ORA_DB_CHARSET', 'utf8'),
+            'prefix' => env('ORA_DB_PREFIX', ''),
+            'prefix_schema' => env('ORA_DB_SCHEMA_PREFIX', ''),
+
         ],
 
     ],
